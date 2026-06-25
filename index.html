@@ -2,9 +2,13 @@
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>Uma surpresa</title>
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
+
+  <title>A mais linda do mundo</title>
 
   <style>
     * {
@@ -23,7 +27,12 @@
       font-family: Arial, sans-serif;
       text-align: center;
 
-      background: linear-gradient(160deg, #ffb6c1, #fff0f3);
+      background: linear-gradient(
+        160deg,
+        #ffb6c1,
+        #fff0f3
+      );
+
       color: #5e1830;
     }
 
@@ -35,6 +44,7 @@
     h1 {
       margin-bottom: 24px;
       font-size: 2rem;
+      line-height: 1.2;
     }
 
     button {
@@ -49,7 +59,9 @@
 
       font-size: 1.2rem;
       font-weight: bold;
+
       cursor: pointer;
+      box-shadow: 0 8px 24px rgba(94, 24, 48, 0.2);
     }
 
     button:active {
@@ -58,8 +70,10 @@
 
     #contador {
       display: none;
-      font-size: 6rem;
+
+      font-size: 7rem;
       font-weight: bold;
+
       animation: aparecer 0.5s ease;
     }
 
@@ -69,13 +83,72 @@
     }
 
     #surpresa h2 {
-      font-size: 1.6rem;
+      font-size: 1.7rem;
       line-height: 1.4;
     }
 
-    #surpresa span {
+    .instagram {
+      margin-top: 28px;
+
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 18px;
+    }
+
+    .foto-perfil {
+      width: 150px;
+      height: 150px;
+
+      object-fit: cover;
+      border-radius: 50%;
+
+      border: 5px solid white;
+
+      box-shadow:
+        0 10px 30px rgba(94, 24, 48, 0.25);
+    }
+
+    .seta-baixo {
+      font-size: 2.5rem;
+      animation: moverSeta 1s infinite alternate;
+    }
+
+    .link-instagram {
+      width: 100%;
+      padding: 17px 22px;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 14px;
+
+      border-radius: 50px;
+
+      background: white;
+      color: #d6336c;
+
+      text-decoration: none;
+      font-size: 1.15rem;
+      font-weight: bold;
+
+      box-shadow:
+        0 8px 25px rgba(94, 24, 48, 0.15);
+    }
+
+    .link-instagram:active {
+      transform: scale(0.96);
+    }
+
+    .seta-link {
+      font-size: 1.8rem;
+    }
+
+    .coracao {
       display: block;
-      margin-top: 16px;
+
+      margin-top: 24px;
+
       font-size: 3rem;
     }
 
@@ -90,17 +163,33 @@
         transform: scale(1);
       }
     }
+
+    @keyframes moverSeta {
+      from {
+        transform: translateY(0);
+      }
+
+      to {
+        transform: translateY(8px);
+      }
+    }
   </style>
 </head>
 
 <body>
   <main class="conteudo">
+
     <section id="inicio">
       <h1>Tenho uma coisa para mostrar...</h1>
-      <button id="botao">Clica aqui</button>
+
+      <button id="botao">
+        Clica aqui
+      </button>
     </section>
 
-    <div id="contador">3</div>
+    <div id="contador">
+      3
+    </div>
 
     <section id="surpresa">
       <h2>
@@ -109,8 +198,33 @@
         a mais linda do mundo!
       </h2>
 
-      <span>❤️</span>
+      <div class="instagram">
+        <img
+          class="foto-perfil"
+          src="https://instagram.fbnu9-1.fna.fbcdn.net/v/t51.82787-19/730325432_17933360574311826_2867770431504514039_n.jpg?efg=eyJ2ZW5jb2RlX3RhZyI6InByb2ZpbGVfcGljLmRqYW5nby4xMDgwLmMyIn0&_nc_ht=instagram.fbnu9-1.fna.fbcdn.net&_nc_cat=106&_nc_oc=Q6cZ2gGnrDQD5gWCd1klXaFnP128BcTFiGv3HUF8bM9TTn967DNb2KGnad5pyK9ALonchamK93lzCXuEpboNuoBqdd07&_nc_ohc=VNL3ojqKYc8Q7kNvwEw1yVN&_nc_gid=qInWrX2W8exgxIwM5WXTEw&edm=AP4sbd4BAAAA&ccb=7-5&oh=00_Af_qknf-ILzXMfZpCYwAVpeGmY_G5hwFCxAQUKcdpb7_PQ&oe=6A436023&_nc_sid=7a9f4b"
+          alt="Foto de perfil da Sara"
+        >
+
+        <div class="seta-baixo">
+          ↓
+        </div>
+
+        <a
+          class="link-instagram"
+          href="https://www.instagram.com/saraevyn/"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <span>@saraevyn</span>
+          <span class="seta-link">→</span>
+        </a>
+      </div>
+
+      <span class="coracao">
+        ❤️
+      </span>
     </section>
+
   </main>
 
   <script>
@@ -126,6 +240,7 @@
       contador.style.display = "block";
 
       let numero = 3;
+
       contador.textContent = numero;
 
       const intervalo = setInterval(() => {
